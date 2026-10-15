@@ -137,10 +137,20 @@ ${JSON.stringify(simulationSummary, null, 2)}`;
             res.statusCode = 404;
             res.end(JSON.stringify({ error: 'Endpoint not found' }));
           } catch (error: any) {
-            console.error('Gemini API Error:', error);
-            res.statusCode = 500;
+            const isQuota =
+              error?.status === 'RESOURCE_EXHAUSTED' ||
+              error?.message?.includes('quota') ||
+              error?.message?.includes('429') ||
+              error?.code === 429;
+
+            if (!isQuota) {
+              console.warn('Gemini Notice:', error?.message || error);
+            }
+
+            // Return graceful 200 response with quotaExceeded flag
+            res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json; charset=utf-8');
-            res.end(JSON.stringify({ error: error.message || 'Internal error' }));
+            res.end(JSON.stringify({ quotaExceeded: true, fallback: true }));
           }
         });
       });

@@ -26,7 +26,10 @@ export const AiCommentaryCard: React.FC<AiCommentaryCardProps> = ({ tab, tabTitl
   };
 
   useEffect(() => {
-    fetchCommentary();
+    const timer = setTimeout(() => {
+      fetchCommentary();
+    }, 400);
+    return () => clearTimeout(timer);
   }, [tab, result.input.baseRate, result.input.scenarioRate]);
 
   // Format the commentary text to highlight the action proposal

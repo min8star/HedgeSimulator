@@ -138,15 +138,36 @@ function generateFallbackCommentary(tab: 'corporate' | 'finance' | 'sales' | 'pr
 - [실행 제안] 고환율 시기 결제 부담 완화를 위해 주요 납품처와 Usance 결제기한 연장을 협의하고, 급등 우려 원료에 대해서는 수입 선물환(Buy Forward) 매입을 재무팀과 공동 검토하십시오.`;
 }
 
+// Global in-memory cache and quota flag
+const commentaryCache = new Map<string, TabCommentaryResult>();
+let isGeminiQuotaExceeded = false;
+
 /**
- * 탭별 AI 해설 요청 (서버 프록시 호출 -> 실패 시 규칙 기반 폴백)
+ * 탭별 AI 해설 요청 (서버 프록시 호출 -> 실패 또는 쿼터 소진 시 규칙 기반 폴백)
  */
 export async function getTabCommentary(
   tab: 'corporate' | 'finance' | 'sales' | 'procurement',
   result: FxSimulationResult
 ): Promise<TabCommentaryResult> {
-  const summary = buildSimulationSummary(result);
+  const cacheKey = `${tab}_${result.input.baseRate}_${result.input.scenarioRate}`;
+  if (commentaryCache.has(cacheKey)) {
+    return commentaryCache.get(cacheKey)!;
+  }
+
   const now = new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+  // If we already know quota is exhausted, immediately return pure rule-based commentary
+  if (isGeminiQuotaExceeded) {
+    const fallback = {
+      text: generateFallbackCommentary(tab, result),
+      isAi: false,
+      generatedAt: now,
+    };
+    commentaryCache.set(cacheKey, fallback);
+    return fallback;
+  }
+
+  const summary = buildSimulationSummary(result);
 
   try {
     const res = await fetch('/api/gemini/commentary', {
@@ -160,21 +181,30 @@ export async function getTabCommentary(
     }
 
     const data = await res.json();
+    if (data.quotaExceeded) {
+      isGeminiQuotaExceeded = true;
+      throw new Error('Quota exceeded');
+    }
+
     if (data.text && typeof data.text === 'string' && data.text.trim().length > 10) {
-      return {
+      const resultObj = {
         text: data.text.trim(),
         isAi: true,
         generatedAt: now,
       };
+      commentaryCache.set(cacheKey, resultObj);
+      return resultObj;
     }
     throw new Error('Empty text from server');
   } catch (err) {
-    // 폴백 해설 반환
-    return {
+    // 룰 기반 폴백 해설 반환
+    const fallback = {
       text: generateFallbackCommentary(tab, result),
       isAi: false,
       generatedAt: now,
     };
+    commentaryCache.set(cacheKey, fallback);
+    return fallback;
   }
 }
 
@@ -197,6 +227,10 @@ export async function generateAiScenarios(
     }
 
     const data = await res.json();
+    if (data.quotaExceeded) {
+      isGeminiQuotaExceeded = true;
+      throw new Error('Quota exceeded');
+    }
     if (data && Array.isArray(data.scenarios) && data.scenarios.length === 3) {
       return {
         scenarios: data.scenarios,
@@ -257,6 +291,10 @@ export async function askFxAdvisor(
     }
 
     const data = await res.json();
+    if (data.quotaExceeded) {
+      isGeminiQuotaExceeded = true;
+      throw new Error('Quota exceeded');
+    }
     if (data.text && typeof data.text === 'string') {
       return {
         answer: data.text.trim(),

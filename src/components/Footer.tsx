@@ -1,5 +1,6 @@
 import React from 'react';
 import { AlertCircle, ShieldCheck, Building2 } from 'lucide-react';
+import { LxLogo } from './LxLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -22,8 +23,10 @@ export const Footer: React.FC = () => {
 
         {/* Corporate Branding & Engine Information */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600 text-[11px] pt-2">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-800">LX MMA 전사 환율 변동 영향 시뮬레이터</span>
+          <div className="flex items-center gap-2.5">
+            <LxLogo className="h-5" isDarkTheme={false} />
+            <span>·</span>
+            <span className="font-bold text-slate-800">전사 환율 변동 영향 시뮬레이터</span>
             <span>·</span>
             <span>버전 2.5 (Enterprise Edition)</span>
           </div>

@@ -9,6 +9,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 import { AiScenarioModal } from './AiScenarioModal';
+import { LxLogo } from './LxLogo';
 
 interface HeaderProps {
   baseRate: number;
@@ -48,15 +49,8 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Top corporate branding bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 bg-red-600 text-white font-black text-xs tracking-wider rounded-sm shadow-xs">
-              LX
-            </span>
-            <span className="font-extrabold tracking-tight text-white text-lg">
-              MMA
-            </span>
-          </div>
-          <div className="h-4 w-px bg-slate-700 hidden sm:block" />
+          <LxLogo className="h-7 sm:h-8" isDarkTheme={true} />
+          <div className="h-5 w-px bg-slate-700 hidden sm:block" />
           <div>
             <h1 className="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
               환율 변동 영향 시뮬레이터

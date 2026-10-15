@@ -103,7 +103,8 @@ export const Header: React.FC<HeaderProps> = ({
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') handleBaseRateBlur();
                   }}
-                  className="w-24 bg-slate-950 text-white font-bold text-sm px-2 py-1 rounded-md border border-slate-700 focus:outline-hidden focus:border-blue-500"
+                  className="w-24 bg-slate-800 text-white font-bold text-sm px-2.5 py-1 rounded-md border border-slate-600 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                  style={{ color: '#ffffff', backgroundColor: '#1e293b' }}
                 />
                 <span className="text-xs font-semibold text-slate-300">원 / USD</span>
               </div>

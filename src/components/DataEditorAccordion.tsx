@@ -261,7 +261,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                             type="text"
                             value={c.name}
                             onChange={(e) => handleUpdateForward(c.id, { name: e.target.value })}
-                            className="w-20 px-1.5 py-1 bg-white border border-slate-300 rounded-md text-xs font-medium"
+                            className="w-20 px-1.5 py-1 bg-white text-slate-900 border border-slate-300 rounded-md text-xs font-medium"
                           />
                         </td>
                         <td className="py-2 px-3">
@@ -288,7 +288,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                             onChange={(e) =>
                               handleUpdateForward(c.id, { amount: parseFloat(e.target.value) || 0 })
                             }
-                            className="w-20 px-1.5 py-1 bg-white border border-slate-300 rounded-md text-xs font-semibold text-right"
+                            className="w-20 px-1.5 py-1 bg-white text-slate-900 border border-slate-300 rounded-md text-xs font-semibold text-right"
                           />
                         </td>
                         <td className="py-2 px-3">
@@ -299,7 +299,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                             onChange={(e) =>
                               handleUpdateForward(c.id, { contractRate: parseFloat(e.target.value) || 0 })
                             }
-                            className="w-24 px-1.5 py-1 bg-white border border-slate-300 rounded-md text-xs font-semibold text-right"
+                            className="w-24 px-1.5 py-1 bg-white text-slate-900 border border-slate-300 rounded-md text-xs font-semibold text-right"
                           />
                         </td>
                         <td className="py-2 px-3">
@@ -307,7 +307,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                             type="text"
                             value={c.maturity}
                             onChange={(e) => handleUpdateForward(c.id, { maturity: e.target.value })}
-                            className="w-20 px-1.5 py-1 bg-white border border-slate-300 rounded-md text-xs"
+                            className="w-20 px-1.5 py-1 bg-white text-slate-900 border border-slate-300 rounded-md text-xs"
                           />
                         </td>
                         <td className="py-2 px-3">
@@ -374,7 +374,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                           onChange={(e) =>
                             handleUpdateExport(exp.id, 'usdAmount', parseFloat(e.target.value) || 0)
                           }
-                          className="w-full bg-white px-2 py-1 rounded-md border border-slate-300 font-semibold text-xs"
+                          className="w-full bg-white text-slate-900 px-2 py-1 rounded-md border border-slate-300 font-semibold text-xs"
                         />
                       </div>
                       <div>
@@ -388,7 +388,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                           onChange={(e) =>
                             handleUpdateExport(exp.id, 'krwCost', parseFloat(e.target.value) || 0)
                           }
-                          className="w-full bg-white px-2 py-1 rounded-md border border-slate-300 font-semibold text-xs"
+                          className="w-full bg-white text-slate-900 px-2 py-1 rounded-md border border-slate-300 font-semibold text-xs"
                         />
                       </div>
                     </div>

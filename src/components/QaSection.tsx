@@ -200,7 +200,7 @@ export const QaSection: React.FC<QaSectionProps> = ({ result }) => {
           onKeyDown={(e) => {
             if (e.key === 'Enter') handleSend();
           }}
-          className="flex-1 px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white"
+          className="flex-1 px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 font-medium focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white"
         />
         <button
           onClick={() => handleSend()}

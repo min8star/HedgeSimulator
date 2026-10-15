@@ -77,7 +77,7 @@ export const AiScenarioModal: React.FC<AiScenarioModalProps> = ({
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="예: 연준 금리 동결, 엔화 약세 지속"
-                className="flex-1 px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                className="flex-1 px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 font-medium text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleGenerate();
                 }}

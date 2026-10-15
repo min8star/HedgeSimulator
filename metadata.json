@@ -1,0 +1,6 @@
+{
+  "name": "LX MMA 환율 변동 영향 시뮬레이터",
+  "description": "LX MMA의 재무, 영업, 구매 부서별 환율 영향 및 전사 자연헤지, 회계 불일치 시뮬레이션 시스템",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

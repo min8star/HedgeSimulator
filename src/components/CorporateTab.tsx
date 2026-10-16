@@ -341,7 +341,7 @@ export const CorporateTab: React.FC<CorporateTabProps> = ({
       {/* 3. AI Commentary Card */}
       <AiCommentaryCard
         tab="corporate"
-        tabTitle="전사(CFO 보고용)"
+        tabTitle="전사(보고용)"
         result={result}
       />
 

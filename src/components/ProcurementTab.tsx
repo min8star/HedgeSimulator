@@ -89,7 +89,7 @@ export const ProcurementTab: React.FC<ProcurementTabProps> = ({
           <div className="flex items-center justify-between text-xs text-slate-500">
             <span className="font-semibold text-slate-700">기준대비 원가 증감</span>
             <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-xs">
-              ΔFX: {deltaFx >= 0 ? `+${deltaFx}` : deltaFx}원
+              △환율: {deltaFx >= 0 ? `+${deltaFx}` : deltaFx}원
             </span>
           </div>
           <div
@@ -185,7 +185,7 @@ export const ProcurementTab: React.FC<ProcurementTabProps> = ({
               월별 원자재 수입 결제 소요액 상세 내역
             </h3>
             <p className="text-xs text-slate-500">
-              원화 결제액 = USD수입액 × 환율 ÷ 100, 기준 대비 증감 = USD수입액 × ΔFX ÷ 100
+              원화 결제액 = USD수입액 × 환율 ÷ 100, 기준 대비 증감 = USD수입액 × △환율 ÷ 100
             </p>
           </div>
           <span className="text-xs text-slate-500 font-medium">단위: USD 백만, 억원</span>

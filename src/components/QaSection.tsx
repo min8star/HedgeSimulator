@@ -29,7 +29,7 @@ export const QaSection: React.FC<QaSectionProps> = ({ result }) => {
     {
       id: 'welcome',
       sender: 'assistant',
-      text: `안녕하세요. LX MMA 환율 리스크 관리 AI 자문역입니다. 현재 시나리오 환율(${result.input.scenarioRate.toLocaleString()}원, ΔFX ${result.deltaFx >= 0 ? '+' : ''}${result.deltaFx}원)의 엔진 계산 결과 JSON을 기반으로 재무, 영업, 구매 영향 및 전사 자연헤지 방안에 대해 질문해 주시면 팩트 기반으로 답변해 드립니다.`,
+      text: `안녕하세요. LX MMA 환율 리스크 관리 AI 자문역입니다. 현재 시나리오 환율(${result.input.scenarioRate.toLocaleString()}원, △환율 ${result.deltaFx >= 0 ? '+' : ''}${result.deltaFx}원)의 엔진 계산 결과 JSON을 기반으로 재무, 영업, 구매 영향 및 전사 자연헤지 방안에 대해 질문해 주시면 팩트 기반으로 답변해 드립니다.`,
       isAi: false,
       time: '안내',
     },

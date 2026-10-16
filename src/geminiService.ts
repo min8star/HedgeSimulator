@@ -306,7 +306,7 @@ export async function askFxAdvisor(
     // 계산 결과 JSON 기반의 정밀 폴백 응답
     const { exchangeRates, companyOfficialMetrics, extendedCorporateMetrics, accountingProfitLoss, economicImpactAndMismatch } = summary;
     
-    let answer = `현재 시뮬레이션 기준환율은 ${exchangeRates.baseRate}원, 시나리오 환율은 ${exchangeRates.scenarioRate}원(ΔFX ${exchangeRates.deltaFx >= 0 ? '+' : ''}${exchangeRates.deltaFx}원)입니다.
+    let answer = `현재 시뮬레이션 기준환율은 ${exchangeRates.baseRate}원, 시나리오 환율은 ${exchangeRates.scenarioRate}원(△환율 ${exchangeRates.deltaFx >= 0 ? '+' : ''}${exchangeRates.deltaFx}원)입니다.
 장부 확정 Net Exposure는 ${companyOfficialMetrics.netExposureUsd}백만 USD이며, 당기 회계손익 변화는 ${accountingProfitLoss.totalAccountingPnlDeltaKrw}억원입니다.
 반면 영업·구매 4분기 예정거래를 감안한 확장 Net Exposure는 ${extendedCorporateMetrics.extendedNetExposureUsd}백만 USD로, 실제 경제적 영향은 ${economicImpactAndMismatch.economicImpactKrw}억원에 달해 ${economicImpactAndMismatch.accountingMismatchKrw}억원의 회계 불일치가 발생합니다.
 따라서 장부상 파생상품 손실에 흔들리지 마시고 전사 자연헤지 현금흐름을 바탕으로 의사결정을 내리시는 것을 권고합니다.`;

@@ -86,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div className="flex-1">
               <label className="text-[11px] font-medium text-slate-400 block mb-0.5">
-                기준환율 (Base FX)
+                기준환율
               </label>
               <div className="flex items-center gap-1.5">
                 <input
@@ -174,7 +174,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             <div className="text-right">
-              <span className="text-[11px] text-slate-400 block font-medium">변동폭 (ΔFX)</span>
+              <span className="text-[11px] text-slate-400 block font-medium">변동폭 (△환율)</span>
               <div
                 className={`inline-flex items-center gap-1 font-bold text-sm ${
                   deltaFx > 0

@@ -100,7 +100,7 @@ export const FinanceTab: React.FC<FinanceTabProps> = ({ result, input, onInputCh
           <div className="flex items-center justify-between text-xs text-slate-500">
             <span className="font-semibold text-slate-700">당기 회계손익 변화</span>
             <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 font-semibold">
-              ΔFX: {deltaFx >= 0 ? `+${deltaFx}` : deltaFx}원
+              △환율: {deltaFx >= 0 ? `+${deltaFx}` : deltaFx}원
             </span>
           </div>
           <div
@@ -191,7 +191,7 @@ export const FinanceTab: React.FC<FinanceTabProps> = ({ result, input, onInputCh
         <div className="mt-3.5 p-3 rounded-lg bg-emerald-50/70 border border-emerald-200 text-xs text-emerald-900 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
           <span>
-            <strong>회계 항등식 검증 완료:</strong> 당기 회계손익 변화 ({accountingPnl.totalAccountingPnlDeltaKrw}억원) = 환산손익 변화 ({accountingPnl.fxTranslationDeltaKrw}억) + 선물환 총 변화 ({accountingPnl.forwardDeltaTotalKrw}억) = Net Exposure ({officialMetrics.netExposureUsd}M$) × ΔFX ({deltaFx}원) ÷ 100
+            <strong>회계 항등식 검증 완료:</strong> 당기 회계손익 변화 ({accountingPnl.totalAccountingPnlDeltaKrw}억원) = 환산손익 변화 ({accountingPnl.fxTranslationDeltaKrw}억) + 선물환 총 변화 ({accountingPnl.forwardDeltaTotalKrw}억) = Net Exposure ({officialMetrics.netExposureUsd}M$) × △환율 ({deltaFx}원) ÷ 100
           </span>
         </div>
       </div>

@@ -406,7 +406,7 @@ export const DataEditorAccordion: React.FC<DataEditorAccordionProps> = ({
                   <span className="w-2 h-2 rounded-full bg-amber-600" />
                   4. 구매본부 예정 원자재 수입 계획 (월별 USD 수입액)
                 </h4>
-                <span className="text-xs text-slate-500">환율 변동 시 원화 결제액 변동 = USD수입 × ΔFX ÷ 100</span>
+                <span className="text-xs text-slate-500">환율 변동 시 원화 결제액 변동 = USD수입 × △환율 ÷ 100</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                 {input.plannedImports.map((imp) => (

@@ -171,7 +171,7 @@ export const CorporateTab: React.FC<CorporateTabProps> = ({
                   당기 회계손익 vs 전사 경제적 영향 (회계 불일치)
                 </h3>
                 <p className="text-xs text-slate-500">
-                  ΔFX ({deltaFx >= 0 ? `+${deltaFx}` : deltaFx}원) 변동에 따른 손익 구조 분해
+                  △환율 ({deltaFx >= 0 ? `+${deltaFx}` : deltaFx}원) 변동에 따른 손익 구조 분해
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@ export const CorporateTab: React.FC<CorporateTabProps> = ({
               부서별 환율 변동 영향 및 전사 경제적 효과 비교
             </h3>
             <p className="text-xs text-slate-500">
-              기준환율 {input.baseRate.toLocaleString()}원 대비 시나리오 {input.scenarioRate.toLocaleString()}원 (ΔFX: {deltaFx > 0 ? `+${deltaFx}` : deltaFx}원) 변동 시 부서별 손익 기여 (단위: 억원)
+              기준환율 {input.baseRate.toLocaleString()}원 대비 시나리오 {input.scenarioRate.toLocaleString()}원 (△환율: {deltaFx > 0 ? `+${deltaFx}` : deltaFx}원) 변동 시 부서별 손익 기여 (단위: 억원)
             </p>
           </div>
           <span className="text-xs px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-medium">
@@ -364,7 +364,7 @@ export const CorporateTab: React.FC<CorporateTabProps> = ({
             <thead className="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
               <tr>
                 <th className="py-2.5 px-3">시나리오 환율</th>
-                <th className="py-2.5 px-3">ΔFX (변동폭)</th>
+                <th className="py-2.5 px-3">△환율 (변동폭)</th>
                 <th className="py-2.5 px-3 text-right">당기 회계손익</th>
                 <th className="py-2.5 px-3 text-right">영업 마진 변동</th>
                 <th className="py-2.5 px-3 text-right">구매 원가 변동</th>
